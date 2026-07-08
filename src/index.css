@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tilda Sans';
+  src: url('/fonts/tilda-sans_black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0c0b0a;
+  --text: rgba(255, 255, 255, 0.92);
+
+  --paper: #f4f1ea;
+  --ink: #1f1c18;
+
+  --font-serif: 'Tilda Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: 'Tilda Sans', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  overflow-x: clip;
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 92px;
+}
+
+.frizBtn {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0.75rem 1.3rem;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 160ms ease,
+    background 200ms ease,
+    border-color 200ms ease;
+}
+
+.frizBtn:hover {
+  transform: translate3d(0, -1px, 0);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.frizBtn:active {
+  transform: translate3d(0, 0, 0);
+}
+
+.frizBtn--dark {
+  border-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.86);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.frizBtn--dark:hover {
+  background: rgba(0, 0, 0, 0.92);
+  border-color: rgba(0, 0, 0, 0.75);
+}
+
+.frizBtn--outline {
+  background: #fff;
+  border: 1px solid rgba(12, 11, 10, 0.85);
+  color: rgba(12, 11, 10, 0.95);
+  padding: 1.05rem 1.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.frizBtn--outline:hover {
+  background: #0c0b0a;
+  color: #fff;
+  border-color: #0c0b0a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frizBtn {
+    transition: none;
+  }
+  .frizBtn:hover,
+  .frizBtn:active {
+    transform: none;
+  }
+}

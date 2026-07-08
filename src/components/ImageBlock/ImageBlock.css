@@ -1,0 +1,99 @@
+.imageBlock {
+  position: relative;
+  width: 100%;
+  background: #0b0a09;
+  overflow: hidden;
+  user-select: none;
+}
+
+.imageBlock__link {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.imageBlock__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.imageBlock__mobileText {
+  position: absolute;
+  left: clamp(200px, 10vw, 11.5rem);
+  right: clamp(2rem, 10vw, 11.5rem);
+  bottom: clamp(200px, 10vw, 7.2rem);
+  z-index: 1;
+  display: block;
+  color: #ffffff;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+}
+
+.imageBlock::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 52%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.68));
+  pointer-events: none;
+}
+
+.imageBlock__mobileText h2 {
+  max-width: 34rem;
+  margin: 0px;
+  font-family: var(--font-sans);
+  font-size: clamp(40px, 4vw, 2.5rem);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.imageBlock__mobileText p {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 760px) {
+  .imageBlock__image {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .imageBlock__mobileText {
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: clamp(2rem, 7vw, 3rem);
+  }
+
+  .imageBlock__mobileText h2 {
+    max-width: 18rem;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 5.5vw, 1.5rem);
+    line-height: 1.18;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  .imageBlock__mobileText p {
+    margin: 0.7rem 0 0;
+    font-family: var(--font-sans);
+    font-size: clamp(0.78rem, 3vw, 0.9rem);
+    line-height: 1.4;
+    letter-spacing: 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}

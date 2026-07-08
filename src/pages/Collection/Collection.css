@@ -1,0 +1,179 @@
+.collectionHero {
+  position: relative;
+  width: 100%;
+  background: #0b0a09;
+  overflow: hidden;
+  user-select: none;
+}
+.collectionHero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 7, 6, 0.32);
+  pointer-events: none;
+}
+
+.collectionHero__media {
+  position: absolute;
+  inset: 0;
+  background: #0b0a09;
+}
+
+.collectionHero__photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.collectionHero__overlay {
+  position: absolute;
+  left: clamp(200px, 10vw, 11.5rem);
+  right: clamp(2rem, 10vw, 11.5rem);
+  bottom: clamp(200px, 10vw, 7.2rem);
+  color: #fff;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.collectionHero__title {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(40px, 4vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: 0;
+  max-width: 34rem;
+  margin: 0;
+}
+
+.collectionHero__sub {
+  margin: 1.1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 34rem;
+}
+
+.collectionGrid {
+  display: flex;
+  flex-direction: column;
+  background: #0b0a09;
+  gap: 0;
+  padding: 0;
+}
+
+.collectionCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1500 / 678;
+  overflow: hidden;
+  background: #fff;
+  user-select: none;
+}
+
+.collectionCard__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  -webkit-user-drag: none;
+  transition: transform 1100ms cubic-bezier(0.2, 0.75, 0.18, 1);
+}
+
+.collectionCard__media--placeholder {
+  background: #15130f;
+}
+
+.collectionCard__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 7, 6, 0.5);
+  transition: opacity 600ms ease;
+  pointer-events: none;
+}
+
+.collectionCard__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  transition: opacity 500ms ease, transform 600ms cubic-bezier(0.2, 0.75, 0.18, 1);
+  pointer-events: none;
+  padding-left: 0.32em;
+}
+
+@media (hover: hover) {
+  .collectionCard__shade {
+    opacity: 0;
+  }
+  .collectionCard__label {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  .collectionCard:hover .collectionCard__shade {
+    opacity: 1;
+  }
+  .collectionCard:hover .collectionCard__label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .collectionHero__photo {
+    aspect-ratio: 4 / 5;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+  .collectionCard {
+    aspect-ratio: 4 / 5;
+  }
+  .collectionHero__overlay {
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: clamp(2rem, 7vw, 3rem);
+  }
+  .collectionHero__title {
+    font-size: clamp(1rem, 5.5vw, 1.5rem);
+    line-height: 1.18;
+    font-weight: 700;
+    max-width: 18rem;
+  }
+  .collectionHero__sub {
+    font-size: clamp(0.78rem, 3vw, 0.9rem);
+    margin: 0.7rem 0 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .collectionHero__overlay {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .collectionHero__title {
+    font-size: clamp(1rem, 5.5vw, 1.5rem);
+    line-height: 1.18;
+  }
+  .collectionHero__sub {
+    font-size: clamp(0.78rem, 3vw, 0.9rem);
+  }
+  .collectionCard__label {
+    font-size: clamp(0.95rem, 5vw, 1.3rem);
+    letter-spacing: 0.24em;
+  }
+}

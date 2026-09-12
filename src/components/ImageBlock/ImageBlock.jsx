@@ -86,9 +86,11 @@ export default function ImageBlock({ id, src, alt, title, subtitle, href }) {
         />
       </div>
       {title ? (
-        <div className="imageBlock__mobileText">
-          <h2>{title}</h2>
-          {subtitle ? <p>{subtitle}</p> : null}
+        <div className="imageBlock__textClip">
+          <div className="imageBlock__mobileText">
+            <h2>{title}</h2>
+            {subtitle ? <p>{subtitle}</p> : null}
+          </div>
         </div>
       ) : null}
     </>

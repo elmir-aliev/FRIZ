@@ -24,21 +24,9 @@ export default function Home() {
       const panels = gsap.utils.toArray('.imageBlock');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      if (!panels.length) return;
+      if (reduceMotion || panels.length < 2) return;
 
       panels.forEach((panel) => {
-        ScrollTrigger.create({
-          trigger: panel,
-          start: 'top center',
-          end: 'bottom center',
-          toggleClass: {
-            targets: panel,
-            className: 'imageBlock--captionActive',
-          },
-        });
-
-        if (reduceMotion || panels.length < 2) return;
-
         const image = panel.querySelector('.imageBlock__parallax');
 
         gsap.fromTo(
@@ -57,6 +45,32 @@ export default function Home() {
           },
         );
       });
+
+      const media = gsap.matchMedia();
+
+      media.add(
+        '(max-width: 760px) and (prefers-reduced-motion: no-preference)',
+        () => {
+          const snapPoints = panels.map((_, index) => index / (panels.length - 1));
+
+          ScrollTrigger.create({
+            trigger: stackRef.current,
+            start: 'top top',
+            end: 'bottom bottom',
+            snap: {
+              snapTo: snapPoints,
+              directional: true,
+              inertia: false,
+              duration: { min: 0.24, max: 0.42 },
+              delay: 0.05,
+              ease: 'power2.inOut',
+            },
+            invalidateOnRefresh: true,
+          });
+        },
+      );
+
+      return () => media.revert();
     },
     { scope: stackRef },
   );

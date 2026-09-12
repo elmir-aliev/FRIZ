@@ -6,12 +6,16 @@
   z-index: 100;
   min-height: 76px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5));
-  -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  backdrop-filter: blur(24px) saturate(1.5);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.18));
+  -webkit-backdrop-filter: blur(20px) saturate(1.65) brightness(1.12);
+  backdrop-filter: blur(20px) saturate(1.65) brightness(1.12);
   border-bottom: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.035);
   opacity: 1;
-  transition: opacity 360ms ease;
+  transform: translate3d(0, 0, 0);
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 400ms ease;
 }
 .navbar::before,
 .navbar::after {
@@ -21,6 +25,9 @@ body.intro-fullscreen .navbar,
 body.intro-fullscreen .navbar__mobile-menu {
   opacity: 0;
   pointer-events: none;
+}
+body.intro-fullscreen .navbar {
+  transform: translate3d(0, -100%, 0);
 }
 .navbar__inner {
   position: relative;
@@ -186,10 +193,12 @@ body.intro-fullscreen .navbar__mobile-menu {
     left: 0; right: 0;
     bottom: auto;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.5));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.32));
     padding: 1.8rem 1.6rem 2.2rem;
-    -webkit-backdrop-filter: blur(24px) saturate(1.5);
-    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.65) brightness(1.12);
+    backdrop-filter: blur(24px) saturate(1.65) brightness(1.12);
+    border-bottom: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     transform-origin: top center;
     animation: navbar-mobileIn 280ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
     transition: opacity 360ms ease;
@@ -257,6 +266,9 @@ body.intro-fullscreen .navbar__mobile-menu {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .navbar {
+    transition: none;
+  }
   .navbar__mobile-menu,
   .navbar__mobile-menu a,
   .navbar__mobileTrigger {

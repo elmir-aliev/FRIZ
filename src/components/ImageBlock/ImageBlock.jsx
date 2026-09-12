@@ -76,7 +76,7 @@ export default function ImageBlock({ id, src, alt, title, subtitle, href }) {
 
   const content = (
     <>
-      <div className="imageBlock__parallax" ref={mediaRef}>
+      <div className="imageBlock__parallax" ref={mediaRef} data-swiper-parallax="60%">
         <img
           className="imageBlock__image"
           src={src}

@@ -1,22 +1,56 @@
-.homeStack {
+.homeShowcase {
   position: relative;
   background: #0b0a09;
 }
 
-.homeStack .imageBlock {
+.homeShowcase:not(.swiper-initialized) .homeShowcase__slides {
+  display: block;
+  transform: none !important;
+}
+
+.homeShowcase:not(.swiper-initialized) .homeShowcase__slide {
+  height: auto;
+}
+
+.homeShowcase .imageBlock {
   width: 100%;
   height: 100svh;
   min-height: 520px;
 }
 
 @media (max-width: 760px) {
-  .homeStack .imageBlock {
+  .homeShowcase .imageBlock {
     min-height: 480px;
+  }
+
+  .homeShowcase.swiper-initialized {
+    height: 100svh;
+    min-height: 480px;
+  }
+
+  .homeShowcase.swiper-initialized .homeShowcase__slides,
+  .homeShowcase.swiper-initialized .homeShowcase__slide,
+  .homeShowcase.swiper-initialized .imageBlock {
+    height: 100%;
+    min-height: 480px;
+  }
+
+  .homeShowcase.swiper-initialized .shapeHero {
+    height: 100%;
+    min-height: 480px;
+  }
+
+  .homeShowcase.swiper-initialized .imageBlock__textClip {
+    clip-path: none;
+  }
+
+  .homeShowcase.swiper-initialized .imageBlock__mobileText {
+    position: absolute;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .homeStack .imageBlock {
+  .homeShowcase .imageBlock {
     height: auto;
     min-height: 100svh;
   }

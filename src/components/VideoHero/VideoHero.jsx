@@ -60,7 +60,7 @@ export default function VideoHero({ src, title = 'FRIZ' }) {
       ref={sectionRef}
     >
       <div className="videoHero__sticky">
-        <div className="videoHero__frame">
+        <div className="videoHero__frame" data-swiper-parallax="60%">
           <video
             className="videoHero__media"
             src={src}

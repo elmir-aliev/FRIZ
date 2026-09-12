@@ -6,15 +6,16 @@ import '../Interior/Interior.css';
 export default function Furniture() {
   return (
     <>
-      <section className="intHero">
-        <img className="intHero__photo" src="/friz/hub/hero.webp" alt="Мебелировка" draggable="false" />
+      <section className="intHero routeHero">
+        <img className="intHero__photo routeHeroMedia" src="/friz/blocks/furniture/furniture.webp" alt="Мебелировка" draggable="false" />
         <div className="intHero__overlay">
           <Reveal>
-            <h1 className="intHero__title">
+            <h1 className="intHero__title routeHeroTitle">
               Архитектура уюта, где каждая
               <br />
               деталь имеет смысл
             </h1>
+            <p className="intHero__sub">Мягкая мебель | Корпусная мебель</p>
           </Reveal>
         </div>
       </section>

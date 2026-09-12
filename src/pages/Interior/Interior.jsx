@@ -141,15 +141,16 @@ export default function Interior({ initialTab = 'interior' }) {
 
   return (
     <>
-      <section className="intHero">
-        <img className="intHero__photo" src="/friz/services/hero.webp" alt="" draggable="false" />
+      <section className="intHero routeHero">
+        <img className="intHero__photo routeHeroMedia" src="/friz/blocks/interior/interior.webp" alt="" draggable="false" />
         <div className="intHero__overlay">
           <Reveal>
-            <h1 className="intHero__title">
+            <h1 className="intHero__title routeHeroTitle">
               Выход за рамки привычного.
               <br />
               Искусство создавать пространство
             </h1>
+            <p className="intHero__sub">Дизайн интерьера | Ремонт под ключ</p>
           </Reveal>
         </div>
       </section>

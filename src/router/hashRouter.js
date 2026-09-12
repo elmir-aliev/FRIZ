@@ -1,4 +1,35 @@
 import { useEffect, useState } from 'react';
+import { flushSync } from 'react-dom';
+
+function commitHash(href) {
+  const root = globalThis.document?.documentElement;
+  const previousScrollBehavior = root?.style.scrollBehavior;
+
+  if (root) root.style.scrollBehavior = 'auto';
+  window.location.hash = href.startsWith('#') ? href : `#${href}`;
+  flushSync(() => window.dispatchEvent(new Event('friz:navigate')));
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+  const finish = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (root) root.style.scrollBehavior = previousScrollBehavior;
+  };
+
+  if (typeof window.requestAnimationFrame === 'function') {
+    window.requestAnimationFrame(() => window.requestAnimationFrame(finish));
+  } else {
+    finish();
+  }
+}
+
+export function navigateWithTransition(href, { beforeNavigate } = {}) {
+  if (!beforeNavigate) {
+    commitHash(href);
+    return null;
+  }
+
+  return Promise.resolve(beforeNavigate()).then(() => commitHash(href));
+}
 
 function getHashPath() {
   const raw = window.location.hash || '#/';
@@ -13,7 +44,11 @@ export function useHashRoute() {
   useEffect(() => {
     const onChange = () => setPath(getHashPath());
     window.addEventListener('hashchange', onChange);
-    return () => window.removeEventListener('hashchange', onChange);
+    window.addEventListener('friz:navigate', onChange);
+    return () => {
+      window.removeEventListener('hashchange', onChange);
+      window.removeEventListener('friz:navigate', onChange);
+    };
   }, []);
 
   return path;

@@ -7,6 +7,7 @@ import FurnitureCategory from './pages/Furniture/FurnitureCategory';
 import Collection from './pages/Collection/Collection';
 import ProjectDetail from './pages/Project/ProjectDetail';
 import { useHashRoute } from './router/hashRouter';
+import './routeTransitions.css';
 
 const KITCHENS = [
   { name: 'Harizma', src: '/friz/kitchens/harizma.webp' },
@@ -84,7 +85,8 @@ export default function App() {
     page = (
       <Collection
         heroTitle="Бескомпромиссное качество в самом сердце дома"
-        heroImage="/friz/kitchens/kitchens.webp"
+        heroSubtitle="Кухни"
+        heroImage="/friz/blocks/kitchens/kitchens.webp"
         items={KITCHENS}
       />
     );
@@ -101,8 +103,9 @@ export default function App() {
       <FurnitureCategory
         title="Проекты"
         heroCaption="Погрузись в галерею наших завершенных объектов"
+        heroSubtitle="Проекты"
         framed
-        heroImage="/friz/projects/project-1.webp"
+        heroImage="/friz/blocks/projects/projects.webp"
         images={['/friz/projects/harizma/hero.webp']}
         captions={['#1']}
         links={['/projects/harizma']}

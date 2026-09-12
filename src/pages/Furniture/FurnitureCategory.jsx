@@ -13,6 +13,7 @@ export default function FurnitureCategory({
   heroImage,
   bakedHero = false,
   heroCaption,
+  heroSubtitle,
   framed = false,
   gallerySize = 5,
 }) 
@@ -23,12 +24,12 @@ export default function FurnitureCategory({
   return (
     <>
       <section
-        className={`intService ${heroCaption ? 'intService--veil' : ''}`}
+        className={`intService routeHero ${heroCaption ? 'intService--veil' : ''}`}
         onContextMenu={preventMediaMenu}
       >
         {heroImage ? (
           <img
-            className={`intService__photo ${bakedHero ? 'intService__photo--baked' : ''}`}
+            className={`intService__photo routeHeroMedia ${bakedHero ? 'intService__photo--baked' : ''}`}
             src={heroImage}
             alt={title}
             draggable="false"
@@ -39,13 +40,14 @@ export default function FurnitureCategory({
         {heroCaption ? (
           <div className="intService__overlay intService__overlay--caption">
             <Reveal>
-              <p className="furnHero__caption">{heroCaption}</p>
+              <p className="furnHero__caption routeHeroTitle">{heroCaption}</p>
+              {heroSubtitle ? <p className="intService__sub">{heroSubtitle}</p> : null}
             </Reveal>
           </div>
         ) : !bakedHero ? (
           <div className="intService__overlay">
             <Reveal>
-              <h2 className="intService__title">{title}</h2>
+              <h2 className="intService__title routeHeroTitle">{title}</h2>
               <p className="intService__sub">{subtitle}</p>
             </Reveal>
           </div>

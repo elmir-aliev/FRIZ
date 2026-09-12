@@ -1,0 +1,51 @@
+.routeHero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.routeHero .routeHeroMedia {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.routeHero .intHero__overlay,
+.routeHero .collectionHero__overlay,
+.routeHero .intService__overlay {
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.routeHero .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+  animation: none;
+}
+
+.routeHero .routeHeroTitle,
+.routeHero .intHero__sub,
+.routeHero .collectionHero__sub,
+.routeHero .intService__sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 760px) {
+  .routeHero {
+    min-height: 480px;
+  }
+}

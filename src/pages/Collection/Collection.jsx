@@ -8,15 +8,15 @@ export default function Collection({ heroTitle, heroSubtitle, heroImage, items =
 
   return (
     <>
-      <section className="collectionHero" onContextMenu={preventMediaMenu}>
+      <section className="collectionHero routeHero" onContextMenu={preventMediaMenu}>
         {heroImage ? (
-          <img className="collectionHero__photo" src={heroImage} alt={heroTitle} draggable="false" />
+          <img className="collectionHero__photo routeHeroMedia" src={heroImage} alt={heroTitle} draggable="false" />
         ) : (
           <div className="collectionHero__media" aria-hidden="true" />
         )}
         <div className="collectionHero__overlay">
           <Reveal>
-            <h1 className="collectionHero__title">{heroTitle}</h1>
+            <h1 className="collectionHero__title routeHeroTitle">{heroTitle}</h1>
             {heroSubtitle ? (
               <p className="collectionHero__sub">{heroSubtitle}</p>
             ) : null}

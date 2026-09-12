@@ -24,9 +24,21 @@ export default function Home() {
       const panels = gsap.utils.toArray('.imageBlock');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      if (reduceMotion || panels.length < 2) return;
+      if (!panels.length) return;
 
       panels.forEach((panel) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          start: 'top center',
+          end: 'bottom center',
+          toggleClass: {
+            targets: panel,
+            className: 'imageBlock--captionActive',
+          },
+        });
+
+        if (reduceMotion || panels.length < 2) return;
+
         const image = panel.querySelector('.imageBlock__parallax');
 
         gsap.fromTo(

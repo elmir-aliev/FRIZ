@@ -35,25 +35,23 @@
   user-select: none;
 }
 
-.imageBlock__textClip {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  clip-path: inset(0);
-  pointer-events: none;
-}
-
 .imageBlock .imageBlock__mobileText {
   position: fixed;
   inset: 0;
   padding: 1.5rem;
-  display: flex;
+  z-index: 2;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #ffffff;
   text-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.imageBlock--captionActive .imageBlock__mobileText {
+  display: flex;
 }
 
 .imageBlock__parallax::after {

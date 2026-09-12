@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Navbar from './components/Navbar/Navbar';
+import SmoothScroll from './components/SmoothScroll/SmoothScroll';
 import Home from './pages/Home/Home';
 import Interior from './pages/Interior/Interior';
 import Furniture from './pages/Furniture/Furniture';
@@ -122,6 +123,7 @@ export default function App() {
 
   return (
     <>
+      <SmoothScroll />
       <Navbar />
       <main>{page}</main>
       {scrollTarget ? <ScrollTo id={scrollTarget} /> : null}
